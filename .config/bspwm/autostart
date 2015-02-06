@@ -6,20 +6,19 @@
 # Author: Diego Berrocal
 
 # Load X resources (fixes some font issues)
-xrdb -merge .Xresources
+xrdb -merge .Xresources &
 
 # Start compositing to support transparency. You can omit this
 # if you prefer not to use any transparency, but it is likely to cause
 # ugly black fringing with some programs such as synapse that expect
 # transparency support.
 # xcompmgr -n &
-compton &
+# compton &
 
 ###############################
 ### LOAD SCREEN BACKGROUNDS ###
 ###############################
 nautilus &
-pkill nautilus
 
 #
 # STARTUP ICON TRAY
@@ -45,16 +44,16 @@ pkill nautilus
 # - window-strut "none" means windows are allowed to cover the tray. In
 #   other words, trust xmonad to handle this part.
 #
-# stalonetray \
-#     --icon-gravity E \
-#     --geometry 9x1-0+0 \
-#     --max-geometry 9x1-0+0 \
-#     --background '#1a1a1a' \
-#     --skip-taskbar \
-#     --icon-size 24 \
-#     --kludges force_icons_size \
-#     --window-strut none \
-# &
+stalonetray \
+    --icon-gravity E \
+    --geometry 9x1-0+0 \
+    --max-geometry 9x1-0+0 \
+    --background '#1a1a1a' \
+    --skip-taskbar \
+    --icon-size 24 \
+    --kludges force_icons_size \
+    --window-strut none \
+&
 
 
 
@@ -70,8 +69,6 @@ syndaemon -i 1 -t &
 # Start xFlux
 # xflux -l 51.503 -g -0.1276
 
-# used to disable keyboard brightness
-echo "0" | sudo tee -a /sys/devices/platform/asus-nb-wmi/leds/asus::kbd_backlight/brightness > /dev/null
 
 #Plz low screen brightness
 xbacklight -set 50
@@ -79,17 +76,15 @@ xbacklight -set 50
 dropbox start &
 # megasync &
 
-ibus exit
-
 ################################################################################
 ############## START OF APPLICATIONS ###########################################
 ################################################################################
 
 
 # Network manager, so we don't have to configure wifi at the command line.
-# if [ -z "$(pgrep nm-applet)" ] ; then
-#     nm-applet --sm-disable &
-# fi
+if [ -z "$(pgrep nm-applet)" ] ; then
+    nm-applet --sm-disable &
+fi
 
 export TERM=rxvt-unicode-256color
 
@@ -110,12 +105,12 @@ if [ -z "$(pgrep variety)" ] ; then
     /opt/extras.ubuntu.com/variety/bin/variety &
 fi
 
-echo "0" | sudo tee -a /sys/devices/platform/asus-nb-wmi/leds/asus::kbd_backlight/brightness > /dev/null
-
 if [ -z "$(pgrep emacs)" ] ; then
     emacs &
 fi
 
-mopidy &
+# mopidy &
 
-~/dotbspwm/scripts/bottombar
+pkill nautilus
+
+ibus exit

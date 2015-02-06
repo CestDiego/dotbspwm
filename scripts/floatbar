@@ -60,7 +60,7 @@ desktops() {
 }
 
 while :; do
-  eval cd "/home/juho"
+  eval cd "/home/io"
   buf="$fg $(close)"
   buf="$buf $(music)"
   buf="$buf %{c}"

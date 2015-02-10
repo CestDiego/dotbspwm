@@ -15,11 +15,6 @@ xrdb -merge .Xresources &
 # xcompmgr -n &
 # compton &
 
-###############################
-### LOAD SCREEN BACKGROUNDS ###
-###############################
-nautilus &
-
 #
 # STARTUP ICON TRAY
 #

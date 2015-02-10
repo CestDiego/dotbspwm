@@ -2,12 +2,6 @@
 # bspwm hotkeys
 #
 
-super + shift + q
-	bspc quit
-# make sxhkd reload its configuration files:
-super + q
-	pkill -USR1 -x sxhkd
-
 # Kill current window
 super + w
 	bspc window -c
@@ -57,13 +51,21 @@ super + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
 super + alt + {h,j,k,l}
-	bspc window -e {left -10,down -10,up -10,right -10}
+	bspc window -e {right -10,up -10,up +10,right +10} || bspc window -e {left -10,down +10,down -10,left +10}
 
-super + shift + {h,j,k,l}
-	bspc window -e {left +10,down +10,up +10,right +10}
+# super + alt + shift + {h,j,k,l}
+# 	bspc window -e {left +10,up +10,down -10,left -10}
 
 super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
+
+# Move floating windows (requires baskerville's xdo pacacur -S xdo-git)
+super + alt + {Left,Right,Up,Down}
+    xdo move {-x -20,-x +20,-y -20,-y +20}
+
+# Resize floating windows
+# super + ctrl + {Left,Right,Up,Down}
+#     xdo resize {-w -20,-w +20,-h -20,-h +20} bspc window -e {left -10,down +10,up -10,right +10} 
 
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,window -d} ^{1-9,10}
@@ -129,10 +131,10 @@ super + shift + f
     urxvt -name ranger -e ranger 
 
 super + Return
-	urxvt -e tmux
+	  urxvt -e tmux
 
 super + shift + Return
-  urxvt 
+    urxvt 
 
 ##### Google Apps
 
@@ -167,3 +169,11 @@ super + F11
 super + F10
 	amixer set Master 100%-
 
+
+### Quitting stuff
+
+super + shift + q
+	bspc quit
+# make sxhkd reload its configuration files:
+super + q
+	pkill -USR1 -x sxhkd

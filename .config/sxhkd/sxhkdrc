@@ -107,7 +107,7 @@ super + g
 
 
 super + p
-    dmenu_run 
+    exe=`dmenu_path | dmenu_run -fn Monaco-72` && eval \"exec $exe\"
 
 super + z
     info-notify
@@ -169,11 +169,26 @@ super + F11
 super + F10
 	amixer set Master 100%-
 
+# ----------------------------------------
+# Media Hotkeys
+# ----------------------------------------
+XF86AudioRaiseVolume
+	amixer set Master 2%+
+
+XF86AudioLowerVolume
+	amixer set Master 2%-
+
+XF86AudioMute
+	amixer set Master 100%-
 
 ### Quitting stuff
 
+super + shift + r
+  bspc reload
+
 super + shift + q
 	bspc quit
+
 # make sxhkd reload its configuration files:
 super + q
 	pkill -USR1 -x sxhkd

@@ -5,7 +5,17 @@ export BSPWM_SOCKET=/tmp/bspwm-socket
 #bspc monitor -d "α" "β" "γ" "δ" "ε" "ζ"
 bspc monitor -d "i" "ii" "iii" "iv" "v" "vi"
 
-bspc config top_padding 0
+# i=1
+# for monitor in $(bspc query -M); do
+# bspc monitor $monitor \
+#         -n "$i" \
+#         -d $i/{i,ii,iii,iv,v,vi,vii,viii,ix,x}
+#     let i++
+# done
+# NMON=$i
+# unset i
+
+bspc config top_padding 20
 bspc config left_padding 0
 bspc config right_padding 0
 bspc config bottom_padding 0
@@ -18,7 +28,7 @@ desktop_config() {
 }
 
 desktop_config border_width 1
-desktop_config window_gap 2
+desktop_config window_gap 30
 
 bspc config split_ratio         0.50
 bspc config borderless_monocle  true
@@ -48,10 +58,9 @@ bspc config focused_frame_opacity 0.0
 bspc rule -a Conky sticky=on manage=off lower=on
 bspc rule -a gimp floating=on
 bspc rule -a scratchpad floating=on
+bspc rule -a Conky sticky=on manage=off lower=on
 
 # Exec on start
 bspc config wm_name LG3D
 floatpipe
 wmname LG3D
-
-/home/io/.config/bspwm/panel/panel &

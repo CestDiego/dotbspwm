@@ -1,3 +1,4 @@
+#-*- mode:conf -*-
 short_units yes
 background yes
 out_to_console yes

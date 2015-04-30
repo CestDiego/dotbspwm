@@ -21,7 +21,7 @@ bspc control --subscribe > "$PANEL_FIFO" &
 echo "T" >  "$PANEL_FIFO" &
 conky -c ./panel_conky > "$PANEL_FIFO" &
 
-cat "$PANEL_FIFO" | ./panel_bar | lemonbar -g x15  -f "$font2","$font1" -F "$fg" -B "$bg" -u 1 &
+cat "$PANEL_FIFO" | ./panel_bar | lemonbar -g 1800x15+35x-35 -f "$font2","$font1" -F "$fg" -B "$bg" -u 1 &
 
 wait
 

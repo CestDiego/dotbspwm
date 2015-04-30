@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 source $(dirname $0)/config
 
@@ -8,7 +8,7 @@ while read -r line ; do
             sys_infos="%{r}${line#?}"
             ;;
         T*)
-            title=" %{F$COLOR_ICON}%{F-} bspwm"
+            title=" %{F$COLOR_ICON}%{F-} @Jupiter"
             ;;
         W*)
             wm_infos="%{c}"

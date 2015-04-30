@@ -1,7 +1,6 @@
 # Fonts defined in xfontsel (xft not yet supported)
-FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT2="-lokaltog-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1"
-FONT2="-*-dweep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*"
+FONT1="-adobe-palatino-medium-r-normal--10-100-75-75-c-60-iso8859-1"
+FONT2="-adobe-palatino-medium-r-normal--10-100-75-75-c-60-iso8859-1"
 
 COLOR_BACKGROUND="#FF1f1f1f"
 COLOR_FOREGROUND="#FFc0b18b"
@@ -14,9 +13,12 @@ COLOR_URGENT="#FFd17b49"
 LINEHEIGHT="3"
 
 # Panel geometry
-PANEL_HEIGHT=14
-PANEL_WIDTH=''
-PANEL_GEOMETRY="${PANEL_WIDTH}x${PANEL_HEIGHT}+0+0"
+PANEL_X_OFFSET=10
+PANEL_Y_OFFSET=10
+PANEL_HEIGHT=30
+STALONETRAY_WIDTH=216
+PANEL_WIDTH=$((1920 - $PANEL_X_OFFSET * 2 - $STALONETRAY_WIDTH))
+PANEL_GEOMETRY="${PANEL_WIDTH}x${PANEL_HEIGHT}+${PANEL_X_OFFSET}+${PANEL_Y_OFFSET}"
 
 # Notification geometry
 NOTIFY_HEIGHT=$PANEL_HEIGHT

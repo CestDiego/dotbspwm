@@ -134,7 +134,7 @@ super + Return
 	  urxvt -e tmux
 
 super + shift + Return
-    urxvt 
+    urxvt -name normal
 
 ##### Google Apps
 

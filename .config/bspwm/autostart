@@ -4,7 +4,7 @@ export BSPWM_SOCKET=/tmp/bspwm-socket
 
 # bspwm startup script. Intended to be run from an xsession configuration
 # to run bspwm and some associated programs.
-# 
+#
 # Author: Diego Berrocal
 
 # Load X resources (fixes some font issues)
@@ -26,7 +26,7 @@ xrdb -merge .Xresources &
 # size of the icons and the width of the tray based upon the
 # size of your screen and your xmobar configuration. The goal is
 # to make stalonetray look like it is part of xmobar.
-# 
+#
 # Line by line, the options used by default below mean:
 # - icons should be aligned with the "East" or right side of the tray
 # - the width of the tray should be 5 icons wide by one icon tall, and it 
@@ -41,16 +41,16 @@ xrdb -merge .Xresources &
 # - window-strut "none" means windows are allowed to cover the tray. In
 #   other words, trust xmonad to handle this part.
 #
-stalonetray \
-    --icon-gravity E \
-    --geometry 9x1-0+0 \
-    --max-geometry 9x1-0+0 \
-    --background '#1a1a1a' \
-    --skip-taskbar \
-    --icon-size 24 \
-    --kludges force_icons_size \
-    --window-strut none \
-&
+# stalonetray \
+#     --icon-gravity E \
+#     --geometry 9x1-0+0 \
+#     --max-geometry 9x1-0+0 \
+#     --background '#1a1a1a' \
+#     --skip-taskbar \
+#     --icon-size 24 \
+#     --kludges force_icons_size \
+#     --window-strut none \
+# &
 
 
 
@@ -81,9 +81,9 @@ dropbox start &
 
 
 # Network manager, so we don't have to configure wifi at the command line.
-if [ -z "$(pgrep nm-applet)" ] ; then
-    nm-applet --sm-disable &
-fi
+# if [ -z "$(pgrep nm-applet)" ] ; then
+#     nm-applet --sm-disable &
+# fi
 
 export TERM=rxvt-unicode-256color
 
@@ -109,8 +109,6 @@ if [ -z "$(pgrep emacs)" ] ; then
 fi
 
 # mopidy &
-
-pkill nautilus
 
 ibus exit
 

@@ -18,7 +18,7 @@ desktop_config() {
 }
 
 desktop_config border_width 1
-desktop_config window_gap 20
+desktop_config window_gap 2
 
 bspc config split_ratio         0.50
 bspc config borderless_monocle  true
@@ -53,3 +53,5 @@ bspc rule -a scratchpad floating=on
 bspc config wm_name LG3D
 floatpipe
 wmname LG3D
+
+/home/io/.config/bspwm/panel/panel &

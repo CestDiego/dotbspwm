@@ -8,7 +8,7 @@ BAT=`acpi -b | awk '{gsub(/%,/,""); print $4}' | sed 's/%//g'`
 STATUS=`acpi -b | awk '{gsub(/,/,""); print $3}'`
 
 # Set Icon
-icon=""
+icon="lel"
 if [[ $STATUS != "Discharging" ]]; then
 	icon=""
 elif [[ $BAT -lt 10 ]]; then
@@ -63,4 +63,5 @@ case $BAT in
 esac
 
 # Create Bar
-echo "%{F$COLOR_ICON}$icon%{F-} "
+# replace by icon for better results
+echo "%{F$COLOR_ICON}$bar%{F-} "

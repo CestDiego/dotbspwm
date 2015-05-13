@@ -1,6 +1,0 @@
-#!/bin/bash
-
-uri="http://translate.google.com/translate_tts?tl=$1&q="
-shift
-a="$*"
-mpv -really-quiet "${uri}${a// /+}" &

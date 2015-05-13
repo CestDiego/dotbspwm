@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "# -*- coding: utf-8 -*-" > $1.py

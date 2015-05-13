@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 export BSPWM_SOCKET=/tmp/bspwm-socket
 
 # bspwm startup script. Intended to be run from an xsession configuration
